@@ -27,22 +27,43 @@ import { supabase } from './lib/supabase';
 function App() {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const { data: { session } } = await supabase.auth.getSession();
-        setIsAuthenticated(!!session);
+        console.log('Checking authentication...');
+        const { data: { session }, error: authError } = await supabase.auth.getSession();
+        if (authError) {
+          console.warn('Auth error:', authError.message);
+          setError('Authentication unavailable - running in demo mode');
+        } else {
+          setIsAuthenticated(!!session);
+          console.log('Auth check complete:', !!session);
+        }
       } catch (err) {
-        console.log('Auth check failed - running in demo mode');
+        console.error('Auth check failed:', err);
+        setError('Demo mode: Supabase unavailable');
       }
     };
 
     checkAuth();
   }, []);
 
+  // If there's an error, still show the page but log it
+  if (error) {
+    console.warn('Running in demo mode -', error);
+  }
+
   return (
     <div className="relative min-h-screen bg-cyber-black">
+      {/* Show error banner if in demo mode */}
+      {error && (
+        <div className="fixed top-0 left-0 right-0 bg-yellow-900 text-yellow-100 p-2 text-sm z-50">
+          {error}
+        </div>
+      )}
+
       {/* Three.js Earth background */}
       <EarthScene />
 

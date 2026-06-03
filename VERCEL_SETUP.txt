@@ -1,0 +1,45 @@
+# VERCEL SETUP - COPY THESE VALUES
+
+## YOUR ENVIRONMENT VARIABLES:
+
+VITE_SUPABASE_URL = https://xtgqzeucvzxvyzuqoxnf.supabase.co
+
+VITE_SUPABASE_ANON_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0Z3F6ZXVjdnp4dnl6dXFveG5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA0NzE3NTQsImV4cCI6MjA5NjA0Nzc1NH0.YwRO0znmRVrbJ2E42IpoTF-3wwUXKUGFq_D_X8XuSjw
+
+---
+
+## QUICK SETUP (3 MINUTES):
+
+1. Open: https://vercel.com/dashboard
+
+2. Click: Cyber-Sphere project
+
+3. Go to: Settings > Environment Variables
+
+4. Click "Add New"
+
+5. First Variable:
+   Name: VITE_SUPABASE_URL
+   Value: (copy from above)
+   Scopes: Check ALL THREE (Production, Preview, Development)
+   Click: Save
+
+6. Click "Add New" again
+
+7. Second Variable:
+   Name: VITE_SUPABASE_ANON_KEY
+   Value: (copy from above)
+   Scopes: Check ALL THREE (Production, Preview, Development)
+   Click: Save
+
+8. Go to Deployments tab
+
+9. Click THREE DOTS menu on latest deployment
+
+10. Click "Redeploy"
+
+11. Wait for checkmark (green)
+
+12. Refresh your website
+
+=== DONE! Your site will be LIVE! ===
