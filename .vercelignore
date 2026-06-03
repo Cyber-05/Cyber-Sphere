@@ -1,0 +1,38 @@
+# Vercel Build Ignore File
+# Files/folders that should not be deployed to Vercel
+
+# Version control
+.git
+.gitignore
+.github
+
+# Environment files (keep .env.example only)
+.env
+.env.local
+.env.*.local
+
+# Development files
+.bolt
+.vscode
+.idea
+*.log
+npm-debug.log*
+
+# Dependencies (built on Vercel)
+node_modules
+
+# Build artifacts (regenerated on Vercel)
+dist
+dist-ssr
+
+# Documentation (doesn't affect build)
+# Keep these for reference: README.md, SECURITY.md, DEPLOYMENT_GUIDE.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Testing
+.test
+.spec
+coverage

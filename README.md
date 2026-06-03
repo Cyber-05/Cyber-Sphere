@@ -324,6 +324,17 @@ Deployed and hosted on **Vercel** for free, with automatic updates on every push
 
 Live URL: `https://cyber-sphere-2el90vnlt-cyber-05s-projects.vercel.app`
 
+### ⚠️ If Your Website Shows a White Page
+
+**This is usually a missing environment variable issue.** See **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** for step-by-step troubleshooting.
+
+**Quick Fix:**
+1. Go to Vercel Dashboard → Your Project → Settings → Environment Variables
+2. Add these two variables:
+   - `VITE_SUPABASE_URL`: Your Supabase project URL
+   - `VITE_SUPABASE_ANON_KEY`: Your Supabase anon key
+3. Redeploy and refresh!
+
 ## 📦 Getting Started
 
 ### Prerequisites
