@@ -2,9 +2,8 @@
 
 **Cyber-Sphere** is a comprehensive, interactive cybersecurity education and awareness platform with a stunning 3D Earth visualization. It serves as a centralized hub for security professionals, researchers, and enthusiasts to learn, collaborate, and stay updated on the latest cybersecurity threats and tools.
 
-## 🌐 Live Demo
-
-**[🚀 Visit Cyber-Sphere Live](https://cyber-sphere-2el90vnlt-cyber-05s-projects.vercel.app)**
+## 🌐 Website is Live Here
+https://cyber-sphere-pi.vercel.app/
 
 ---
 
