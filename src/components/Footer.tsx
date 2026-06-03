@@ -20,15 +20,22 @@ export default function Footer() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const footer = document.getElementById('footer-section');
-      if (footer) {
-        const rect = footer.getBoundingClientRect();
-        setIsVisible(rect.top < window.innerHeight);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const footer = document.getElementById('footer-section');
+          if (footer) {
+            const rect = footer.getBoundingClientRect();
+            setIsVisible(rect.top < window.innerHeight);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

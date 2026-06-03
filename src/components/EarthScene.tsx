@@ -29,8 +29,8 @@ export default function EarthScene({ zoomLevel = 1, onLoadComplete }: EarthScene
 
     camera.position.set(0, 0, 4 * zoomLevel);
 
-    // Enhanced stars with twinkling
-    const starCount = 12000;
+    // Enhanced stars with twinkling - Optimized for smooth scrolling
+    const starCount = 6000;
     const starPositions = new Float32Array(starCount * 3);
     for (let i = 0; i < starCount * 3; i++) {
       starPositions[i] = (Math.random() - 0.5) * 2500;
@@ -41,8 +41,8 @@ export default function EarthScene({ zoomLevel = 1, onLoadComplete }: EarthScene
     const stars = new THREE.Points(starGeo, starMat);
     scene.add(stars);
 
-    // Enhanced nebula with multiple colors
-    const nebulaCount = 1000;
+    // Enhanced nebula with multiple colors - Optimized for performance
+    const nebulaCount = 500;
     const nebulaPositions = new Float32Array(nebulaCount * 3);
     const nebulaColors = new Float32Array(nebulaCount * 3);
     const nebulaColorsArr = [
@@ -65,7 +65,7 @@ export default function EarthScene({ zoomLevel = 1, onLoadComplete }: EarthScene
     const nebula = new THREE.Points(nebulaGeo, nebulaMat);
     scene.add(nebula);
 
-    // Shooting stars
+    // Shooting stars - Optimized frequency
     const createShootingStar = () => {
       const geometry = new THREE.BufferGeometry();
       const positions = new Float32Array([
@@ -79,35 +79,35 @@ export default function EarthScene({ zoomLevel = 1, onLoadComplete }: EarthScene
 
       setTimeout(() => scene.remove(line), 2000);
     };
-    setInterval(createShootingStar, 3000);
+    setInterval(createShootingStar, 5000);
 
-    // High-quality Earth with day/night texture
+    // High-quality Earth with day/night texture - Optimized canvas size
     const earthGeo = new THREE.SphereGeometry(1.5, 128, 128);
 
     const createEarthTexture = () => {
       const canvas = document.createElement('canvas');
-      canvas.width = 4096;
-      canvas.height = 2048;
+      canvas.width = 2048;
+      canvas.height = 1024;
       const ctx = canvas.getContext('2d')!;
 
       // Ocean gradient (night side darker)
-      const oceanGrad = ctx.createLinearGradient(0, 0, 0, 2048);
+      const oceanGrad = ctx.createLinearGradient(0, 0, 0, 1024);
       oceanGrad.addColorStop(0, '#000a1a');
       oceanGrad.addColorStop(0.3, '#001a40');
       oceanGrad.addColorStop(0.5, '#003d80');
       oceanGrad.addColorStop(0.7, '#001a40');
       oceanGrad.addColorStop(1, '#000a1a');
       ctx.fillStyle = oceanGrad;
-      ctx.fillRect(0, 0, 4096, 2048);
+      ctx.fillRect(0, 0, 2048, 1024);
 
-      // Enhanced ocean with realistic shimmer
-      for (let i = 0; i < 3000; i++) {
-        const x = Math.random() * 4096;
-        const y = Math.random() * 2048;
-        const r = Math.random() * 5;
+      // Optimized ocean shimmer effect
+      for (let i = 0; i < 1500; i++) {
+        const x = Math.random() * 2048;
+        const y = Math.random() * 1024;
+        const r = Math.random() * 3;
         ctx.beginPath();
         ctx.arc(x, y, r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0,150,255,${Math.random() * 0.15})`;
+        ctx.fillStyle = `rgba(0,150,255,${Math.random() * 0.1})`;
         ctx.fill();
       }
 
@@ -117,49 +117,49 @@ export default function EarthScene({ zoomLevel = 1, onLoadComplete }: EarthScene
       // North America
       ctx.fillStyle = '#1a5f2a';
       ctx.beginPath();
-      ctx.ellipse(700, 700, 360, 320, -0.3, 0, Math.PI * 2);
+      ctx.ellipse(350, 350, 180, 160, -0.3, 0, Math.PI * 2);
       ctx.fill();
       ctx.fillStyle = '#2d7a3a';
       ctx.beginPath();
-      ctx.ellipse(760, 600, 240, 200, -0.2, 0, Math.PI * 2);
+      ctx.ellipse(380, 300, 120, 100, -0.2, 0, Math.PI * 2);
       ctx.fill();
 
       // South America
       ctx.fillStyle = '#1a5f2a';
       ctx.beginPath();
-      ctx.ellipse(960, 1240, 200, 320, 0.1, 0, Math.PI * 2);
+      ctx.ellipse(480, 620, 100, 160, 0.1, 0, Math.PI * 2);
       ctx.fill();
 
       // Europe
       ctx.fillStyle = '#2d7a3a';
       ctx.beginPath();
-      ctx.ellipse(1800, 560, 180, 160, -0.1, 0, Math.PI * 2);
+      ctx.ellipse(900, 280, 90, 80, -0.1, 0, Math.PI * 2);
       ctx.fill();
 
       // Africa
       ctx.fillStyle = '#3a6a2a';
       ctx.beginPath();
-      ctx.ellipse(1920, 1040, 260, 400, 0, 0, Math.PI * 2);
+      ctx.ellipse(960, 520, 130, 200, 0, 0, Math.PI * 2);
       ctx.fill();
       ctx.fillStyle = '#8a7a2a';
       ctx.beginPath();
-      ctx.ellipse(1900, 760, 220, 180, 0, 0, Math.PI * 2);
+      ctx.ellipse(950, 380, 110, 90, 0, 0, Math.PI * 2);
       ctx.fill();
 
       // Asia
       ctx.fillStyle = '#1a5f2a';
       ctx.beginPath();
-      ctx.ellipse(2500, 600, 560, 400, -0.1, 0, Math.PI * 2);
+      ctx.ellipse(1250, 300, 280, 200, -0.1, 0, Math.PI * 2);
       ctx.fill();
       ctx.fillStyle = '#8a7020';
       ctx.beginPath();
-      ctx.ellipse(2400, 560, 320, 240, -0.2, 0, Math.PI * 2);
+      ctx.ellipse(1200, 280, 160, 120, -0.2, 0, Math.PI * 2);
       ctx.fill();
 
       // Australia
       ctx.fillStyle = '#8a7030';
       ctx.beginPath();
-      ctx.ellipse(3100, 1360, 260, 180, 0.1, 0, Math.PI * 2);
+      ctx.ellipse(1550, 680, 130, 90, 0.1, 0, Math.PI * 2);
       ctx.fill();
 
       // Antarctica
