@@ -20,4 +20,24 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables - NEVER commit these!
 .env
+.env.local
+.env.*.local
+
+# Temporary build and IDE folders
+.bolt
+.next
+out/
+
+# OS and IDE files
+Thumbs.db
+.DS_Store
+
+# Sensitive files
+*.pem
+*.key
+*.p8
+*.p12
+.private/
