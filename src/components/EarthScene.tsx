@@ -347,9 +347,12 @@ export default function EarthScene({ zoomLevel = 1, onLoadComplete }: EarthScene
       clouds.rotation.y = elapsed * 0.025;
       clouds.rotation.x = Math.sin(elapsed * 0.01) * 0.01;
 
-      // Mouse interaction
-      earth.rotation.x += (mousePos.y * 0.0001 - earth.rotation.x) * 0.05;
-      earth.rotation.z += (mousePos.x * 0.0001 - earth.rotation.z) * 0.05;
+      // Enhanced mouse interaction - smooth and responsive earth rotation
+      const targetRotationX = (mousePos.y / window.innerHeight) * Math.PI * 0.3;
+      const targetRotationZ = (mousePos.x / window.innerWidth) * Math.PI * 0.3;
+      
+      earth.rotation.x += (targetRotationX - earth.rotation.x) * 0.08;
+      earth.rotation.z += (targetRotationZ - earth.rotation.z) * 0.08;
 
       // Stars
       stars.rotation.y = elapsed * 0.0005;
